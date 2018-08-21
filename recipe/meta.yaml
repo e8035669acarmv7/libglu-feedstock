@@ -1,25 +1,26 @@
+{% set version = 9.0.0 %}
+
 package:
-    name: libglu
-    version: 9.0.0
+  name: libglu
+  version: {{ version }}
 
 source:
-    fn: glu-9.0.0.tar.gz
-    url: ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.gz
-    md5: bbc57d4fe3bd3fb095bdbef6fcb977c4
+  url: ftp://ftp.freedesktop.org/pub/mesa/glu/glu-{{ version }}.tar.gz
+  sha256: 4387476a1933f36fec1531178ea204057bbeb04cc2d8396c9ea32720a1f7e264
 
 build:
   number: 1000
   skip: True  # [win or osx]
 
 requirements:
-    build:
-        - toolchain
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
 
 test:
   commands:
     - test -f ${PREFIX}/lib/libGLU.a  # [not win]
-    - test -f ${PREFIX}/lib/libGLU.so  # [linux]
-    - test -f ${PREFIX}/lib/libGLU.dylib  # [osx]
+    - test -f ${PREFIX}/lib/libGLU${SHLIB_EXT}  # [not win]
 
 about:
   home: http://www.mesa3d.org/glu.html
