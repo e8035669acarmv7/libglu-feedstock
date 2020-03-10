@@ -11,7 +11,7 @@ source:
     - 001-update-config-guess.patch
 
 build:
-  number: 1000
+  number: 1001
   skip: True  # [win or osx]
 
 requirements:
