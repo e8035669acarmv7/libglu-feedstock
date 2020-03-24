@@ -26,12 +26,12 @@ requirements:
     - {{ cdt('libdrm-devel') }}  # [linux]
     - {{ cdt('libx11-devel') }}  # [linux]
     - {{ cdt('libxfixes-devel') }}  # [linux]
+    - {{ cdt('libxext-devel') }}  # [linux]
     # These dependencies are only for cos7 platforms
     - {{ cdt('mesa-libglapi') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('libglvnd-glx') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('libglvnd') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('libxshmfence-devel') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('libxext-devel') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('libx11-common') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('mesa-khr-devel') }}  # [linux & (ppc64le | aarch64)]
     - pkg-config                    # [unix]
