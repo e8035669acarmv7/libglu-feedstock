@@ -19,12 +19,12 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-libglapi') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
     - {{ cdt('libselinux') }}  # [linux]
     - {{ cdt('libxdamage-devel') }}  # [linux]
     - {{ cdt('libxxf86vm-devel') }}  # [linux]
     # These dependencies are only for cos7 platforms
+    - {{ cdt('mesa-libglapi') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('libglvnd-glx') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('libglvnd') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('libxshmfence-devel') }}  # [linux & (ppc64le | aarch64)]
@@ -34,6 +34,13 @@ requirements:
     - {{ cdt('libx11-common') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('libdrm-devel') }}  # [linux & (ppc64le | aarch64)]
     - {{ cdt('mesa-khr-devel') }}  # [linux & (ppc64le | aarch64)]
+    - pkg-config                    # [unix]
+    - make                          # [unix]
+    - autoconf                      # [unix]
+    - automake                      # [unix]
+    - libtool                       # [unix]
+  host:
+    # These dependencies are only for cos7 platforms
     - xorg-damageproto  # [linux & (ppc64le | aarch64)]
     - xorg-fixesproto  # [linux & (ppc64le | aarch64)]
     - xorg-kbproto  # [linux & (ppc64le | aarch64)]
@@ -42,12 +49,8 @@ requirements:
     - xorg-xextproto  # [linux & (ppc64le | aarch64)]
     - xorg-xf86vidmodeproto  # [linux & (ppc64le | aarch64)]
     - xorg-xproto  # [linux & (ppc64le | aarch64)]
-    - pkg-config                    # [unix]
-    - make                          # [unix]
-    - autoconf                      # [unix]
-    - automake                      # [unix]
+    - libxcb       # [linux & (ppc64le | aarch64)]
     - gettext                       # [unix]
-    - libtool                       # [unix]
 
 test:
   commands:
