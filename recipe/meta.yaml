@@ -7,9 +7,11 @@ package:
 source:
   url: ftp://ftp.freedesktop.org/pub/mesa/glu/glu-{{ version }}.tar.gz
   sha256: 4387476a1933f36fec1531178ea204057bbeb04cc2d8396c9ea32720a1f7e264
+  patches:
+    - 001-update-config-guess.patch
 
 build:
-  number: 1000
+  number: 1001
   skip: True  # [win or osx]
 
 requirements:
@@ -17,6 +19,34 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
+    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+    - {{ cdt('libselinux') }}  # [linux]
+    - {{ cdt('libxdamage-devel') }}  # [linux]
+    - {{ cdt('libxxf86vm-devel') }}  # [linux]
+    - {{ cdt('libdrm-devel') }}  # [linux]
+    - {{ cdt('libx11-devel') }}  # [linux]
+    - {{ cdt('libxfixes-devel') }}  # [linux]
+    - {{ cdt('libxext-devel') }}  # [linux]
+    # These dependencies are only for cos7 platforms
+    - {{ cdt('mesa-libglapi') }}  # [linux & (ppc64le | aarch64)]
+    - {{ cdt('libglvnd-glx') }}  # [linux & (ppc64le | aarch64)]
+    - {{ cdt('libglvnd') }}  # [linux & (ppc64le | aarch64)]
+    - {{ cdt('libxshmfence-devel') }}  # [linux & (ppc64le | aarch64)]
+    - {{ cdt('libx11-common') }}  # [linux & (ppc64le | aarch64)]
+    - {{ cdt('mesa-khr-devel') }}  # [linux & (ppc64le | aarch64)]
+    - pkg-config                    # [unix]
+    - make                          # [unix]
+  host:
+    - xorg-fixesproto  # [linux]
+    - xorg-xproto  # [linux]
+    - xorg-kbproto  # [linux]
+    - xorg-xextproto  # [linux]
+    - xorg-damageproto  # [linux]
+    - xorg-xf86vidmodeproto  # [linux]
+    - libxcb       # [linux]
+    # These dependencies are only for cos7 platforms
+    - xorg-libxau  # [linux & (ppc64le | aarch64)]
+    - xorg-libxdmcp  # [linux & (ppc64le | aarch64)]
 
 test:
   commands:
