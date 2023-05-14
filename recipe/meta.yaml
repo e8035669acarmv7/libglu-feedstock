@@ -29,12 +29,12 @@ requirements:
     - {{ cdt('libxfixes-devel') }}  # [linux]
     - {{ cdt('libxext-devel') }}  # [linux]
     # These dependencies are only for cos7 platforms
-    - {{ cdt('mesa-libglapi') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('libglvnd-glx') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('libglvnd') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('libxshmfence-devel') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('libx11-common') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('mesa-khr-devel') }}  # [linux & (ppc64le | aarch64)]
+    - {{ cdt('mesa-libglapi') }}  # [linux & (ppc64le | aarch64 | armv7l)]
+    - {{ cdt('libglvnd-glx') }}  # [linux & (ppc64le | aarch64 | armv7l)]
+    - {{ cdt('libglvnd') }}  # [linux & (ppc64le | aarch64 | armv7l)]
+    - {{ cdt('libxshmfence-devel') }}  # [linux & (ppc64le | aarch64 | armv7l)]
+    - {{ cdt('libx11-common') }}  # [linux & (ppc64le | aarch64 | armv7l)]
+    - {{ cdt('mesa-khr-devel') }}  # [linux & (ppc64le | aarch64 | armv7l)]
     - pkg-config                    # [unix]
     - make                          # [unix]
   host:
